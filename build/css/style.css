@@ -566,10 +566,6 @@ video {
   order: 2;
 }
 
-.m-32 {
-  margin: 8rem;
-}
-
 .m-16 {
   margin: 4rem;
 }
@@ -587,28 +583,20 @@ video {
   margin-left: 2rem;
 }
 
-.mt-12 {
-  margin-top: 3rem;
+.mt-0 {
+  margin-top: 0px;
 }
 
-.mt-8 {
-  margin-top: 2rem;
+.mt-12 {
+  margin-top: 3rem;
 }
 
 .mt-16 {
   margin-top: 4rem;
 }
 
-.ml-4 {
-  margin-left: 1rem;
-}
-
-.ml-5 {
-  margin-left: 1.25rem;
-}
-
-.mt-0 {
-  margin-top: 0px;
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .flex {
@@ -633,10 +621,6 @@ video {
 
 .w-9\/12 {
   width: 75%;
-}
-
-.w-full {
-  width: 100%;
 }
 
 .w-screen {
@@ -692,10 +676,6 @@ video {
   gap: 2.5rem;
 }
 
-.gap-16 {
-  gap: 4rem;
-}
-
 .gap-4 {
   gap: 1rem;
 }
@@ -743,10 +723,6 @@ video {
   padding: 0.25rem;
 }
 
-.p-32 {
-  padding: 8rem;
-}
-
 .p-4 {
   padding: 1rem;
 }
@@ -765,29 +741,14 @@ video {
   line-height: 2.25rem;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 
 .font-bold {
@@ -842,26 +803,8 @@ video {
   text-decoration-line: none;
 }
 
-.shadow-\[0px_4px_4px_0px_rgba\(0\2c 0\2c 0\2c 0\.247\)\] {
-  --tw-shadow: 0px 4px 4px 0px rgba(0,0,0,0.247);
-  --tw-shadow-colored: 0px 4px 4px 0px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .outline {
   outline-style: solid;
-}
-
-.outline-1 {
-  outline-width: 1px;
-}
-
-.outline-offset-\[-1px\] {
-  outline-offset: -1px;
-}
-
-.outline-black {
-  outline-color: #000;
 }
 
 @media (min-width: 768px) {
@@ -873,24 +816,12 @@ video {
     margin-left: 0px;
   }
 
-  .md\:mt-4 {
-    margin-top: 1rem;
-  }
-
-  .md\:ml-16 {
-    margin-left: 4rem;
-  }
-
-  .md\:ml-8 {
-    margin-left: 2rem;
-  }
-
   .md\:mt-0 {
     margin-top: 0px;
   }
 
-  .md\:block {
-    display: block;
+  .md\:mt-4 {
+    margin-top: 1rem;
   }
 
   .md\:items-center {
@@ -905,13 +836,13 @@ video {
     padding: 8rem;
   }
 
-  .md\:text-6xl {
-    font-size: 3.75rem;
+  .md\:text-5xl {
+    font-size: 3rem;
     line-height: 1;
   }
 
-  .md\:text-5xl {
-    font-size: 3rem;
+  .md\:text-6xl {
+    font-size: 3.75rem;
     line-height: 1;
   }
 }
