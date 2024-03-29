@@ -1,216 +1,325 @@
-<!doctype html>
-<html>
-  <!--  This source code is exported from pxCode, get more document from https://www.pxcode.io  -->
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=0"
-    />
+<!DOCTYPE html>
+<html lang="en">
+<head>     
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAMILIA</title>
+<style>
+    /* Reset CSS */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e4e3e5;
+        color: #333;
+        overflow: hidden; /* Hide overflow */
+    }
 
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    /* Font Face */
+    @font-face {
+        font-family: 'Comfortaa Light';
+        src: url('comfortaa-light.woff2') format('woff2'), /* Adjust the path to your font file */
+            url('comfortaa-light.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
 
-    <link href="build/css/style.css" rel="stylesheet" />
-    <style>
-      .gradient-section {
-        background: linear-gradient(
-          180deg,
-          #fff0f0 0%,
-          rgba(255, 255, 255, 0.9) 100%
-        );
-      }
-      .gradient-section-reversed {
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.9) 0%,
-          #fff0f0 100%
-        );
-      }
-    </style>
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "name": "familia.io",
-        "url": "https://familiaapp.io/",
-        "logo": "https://familiaapp.io/build/img/logo.png"
-      }
-      </script>
-      <meta name="google-site-verification" content="Ej_hTcLMfDrTpcPWnG8TEudscZC9oYClo5hD_VPePIs" />
-  </head>
+    /* Header Gradient */
+    header {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 3px solid #000;
+    }
 
-  <body class="w-screen">
-    <main
-      class="bg-white outline flex flex-col relative mx-auto"
-    >
-    <section class="gradient-section flex flex-col gap-8">
-      <div class="w-9/12 mt-8 ml-8">
-          <img src="./build/img/familiaio_title.svg" />
+    header h1 {
+        font-family: 'Comfortaa Light', Arial, sans-serif;
+        font-weight: normal;
+    }
+
+    
+
+    /* Navigation */
+    nav {
+        padding: 10px 20px;
+        text-align: right;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    nav a {
+        display: inline-block; /* Change display property */
+        color: #000;
+        text-decoration: none;
+        padding: 10px 20px;
+        transition: transform 0.3s; /* Add transition */
+    }
+
+    nav a:hover {
+        transform: scale(1.2); /* Increase scale on hover */
+    }
+
+
+    .event-signup-link {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 5px 20px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s; /* Add transform transition */
+    }
+
+    .event-signup-link:hover {
+        background-color: #c0c0c0; /* Change background color on hover */
+        transform: scale(1.2); /* Make button 10% bigger on hover */
+    }
+
+    .email-link {
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.3s; /* Add transform transition */
+    }
+
+    .email-link:hover {
+        transform: scale(1.2); /* Make link 10% bigger on hover */
+    }
+
+
+
+    
+    .container {
+    max-width: 800px;
+    height: auto; /* Allow the height to adjust based on content */
+    max-height: 800px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Allow vertical scrolling when content overflows */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #e4e3e5;
+    border-radius: 5px;
+    position: relative;
+    }
+
+
+    .image-description {
+            font-family: Arial, sans-serif; /* Change font family */
+            font-size: 20px; /* Change font size */
+            margin-top: 20px; /* Add margin space on top */
+            line-height: 1.5; /* Adjust line height for better readability */
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 5px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.8); /* Add background color */
+        z-index: 100; /* Ensure the footer is above other elements */
+    }
+
+    /* Image Slider */
+    .slideshow-container {
+        max-width: 100%;
+        position: relative;
+        margin: auto;
+    }
+
+    .mySlides {
+        display: none;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Tabs */
+    .tab-content {
+        display: none;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+        /* Falling Sakura Animation */
+    .sakura {
+        position: absolute;
+        width: 10px;
+        height: 20px; /* Increased height to resemble flower petals */
+        background-color: #e4e3e5; /* Sakura color */
+        border-radius: 50%; /* Round shape */
+        pointer-events: none; /* Ignore pointer events */
+        animation: fall 10s linear infinite alternate; /* Updated animation */
+    }
+
+    /* Animation Keyframes */
+    @keyframes fall {
+        0% {
+            transform: translateY(-10%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(110vh);
+            opacity: 1;
+        }
+    }
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>FAMILIA</h1>
+        <nav>
+            <a href="#" onclick="openTab('home')">Home</a>
+            <a href="#" onclick="openTab('events')">Events</a>
+            <a href="#" onclick="openTab('Founder Story')">Founder Story</a>
+            <a href="#" onclick="openTab('contact')">Contact</a>
+        </nav>
+    </header>
+    
+    
+
+    <div class="container">
+        <div id="home" class="tab-content active">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="build/img/frontpage.jpg" alt="Image 1" style="width: 100%; height: auto;">
+                    <div>
+                        <p style="font-size: 24px; font-weight: bold; line-height: 1.5; margin-bottom: 10px;">Founder's Talk</p>
+                        <p style="font-size: 20px; font-family: Arial, sans-serif; line-height: 1.5; margin-bottom: 20px;">Far too often, I've engaged in conversations with accomplished women who share a common narrative - growing up without the presence of a feminine figure in their household. The consequences are profound, as these women often find themselves silently navigating a sea of emotions, grappling with unexpressed feelings that manifest as nightly struggles with depression.</p>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="build/img/author.jpg" alt="Image 2" style="width: 60%; height: auto;">
+                    <div>
+                        <p style="font-size: 24px; font-weight: bold; line-height: 1.5; margin-bottom: 10px;">Michelle, 34, Philadelphia, Crying in H-Mart</p>
+                        <p style="font-size: 20px; font-family: Arial, sans-serif; line-height: 1.5; margin-bottom: 20px;">"Let me feel this, I wanted to scream, hold me... I thought to myself, that if I ever have children, I would never tell them to save their tears."</p>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="build/img/Elizabeth.jpg" alt="Image 3" style="width: 80%; height: auto;">
+                    <div>
+                        <p style="font-size: 24px; font-weight: bold; line-height: 1.5; margin-bottom: 10px;">Elizabeth, 28, Instagram influencer with 15k followers</p>
+                        <p style="font-size: 20px; font-family: Arial, sans-serif; line-height: 1.5; margin-bottom: 20px;">“When my boyfriend told me he wanted to be in a relationship with me, I booked a ticket back to my hometown immediately and escaped. I thought to myself, I don't deserve this.” "I have been seeing therapists on and off. I wish something like this (familia app) exists."</p>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="build/img/Janet.jpg" alt="Image 4" style="width: 80%; height: auto;">
+                    <div>
+                        <p style="font-size: 24px; font-weight: bold; line-height: 1.5; margin-bottom: 10px;">Janet, 25, software engineer</p>
+                        <p style="font-size: 20px; font-family: Arial, sans-serif; line-height: 1.5; margin-bottom: 20px;">Janet's parents escaped Vietnam war through a boat and built the entire family from ground up in America as a working-class family. She grew up feeling guilty to treat herself. “What I made in the Bay Area compares to what my parents make in Michigan is huge.”</p>
+                    </div>
+                </div>
+                
+                <!-- Add more images here -->
+            </div>
+            
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-8 items-center">
-          <div
-            class="flex flex-col gap-8 lg:mt-0 lg:mr-8 order-1 lg:order-2 ml-8 mt-12"
-          >
-            <div
-              class="flex flex-col justify-center flex-shrink-0 text-gray-500 text-4xl md:text-6xl not-italic font-bold overflow-hidden"
-            >
-              A Magical Family Relationship App
+        <div id="events" class="tab-content">
+            <h2 style="font-size: 24px; font-weight: normal; font-family: Arial, sans-serif; line-height: 1.5;">Check out our upcoming events today</h2>
+            <h3 style="font-size: 20px; font-weight: normal; font-family: 'Times New Roman', serif; line-height: 1.5;">San Francisco</h3>
+            <p style="font-size: 16px; font-style: italic; font-family: 'Courier New', monospace; line-height: 1.5; margin-bottom: 20px ">April TBA</p>
+            <div style="display: block; margin-bottom: 20px;">
+                <img src="build/img/coittower.jpg" alt="Event Image" style="max-width: 30%; height: auto;">
             </div>
-            <div
-              class="flex flex-col justify-center flex-shrink-0 text-gray-900 text-3xl md:text-5xl not-italic font-medium lg:pl-36 max-w-6xl"
-            >
-              helps you deepen connections with family and navigate through
-              family conflicts
+            <div style="display: block;">
+                <a href="https://getwaitlist.com/waitlist/8223" class="event-signup-link">Event Sign Up</a>
             </div>
-            <a href="https://getwaitlist.com/waitlist/8223" target="_blank" rel="noopener" class="p-4 bg-[#deab9ca1] rounded-lg no-underline flex justify-center max-w-xs lg:ml-64">
-                <p class="text-white font-semibold text-2xl inline-flex items-center">Join Waitlist Now</p>
-              </a>
-          </div>
-          <img
-            class="md:mt-4 order-2 lg:order-1"
-            src="./build/img/phone.png"
-          />
-        </div>
-      </section>
-      <section class="flex flex-col gap-8">
-        <div class="flex flex-col lg:flex-row gap-8 items-center">
-          <div
-            class="flex flex-col gap-8 md:gap-16 lg:mr-8 order-1 lg:order-1 ml-8"
-          >
-            <div class="flex flex-col justify-center flex-shrink-0 text-gray-500 text-4xl md:text-6xl not-italic font-bold">Daily/Weekly Reminder</div>
-            <div class="flex flex-col justify-center flex-shrink-0 text-gray-900 text-3xl md:text-5xl not-italic font-medium max-w-6xl">Too busy with work? No problem, we got you!</div>
-            <div class="flex flex-col gap-1">
-              <div class="flex flex-row gap-4">
-                <div
-                  class="flex w-6 h-6 p-1 justify-center items-center flex-shrink-0 bg-gray-100 rounded-full"
-                >
-                  <img src="./build/img/check.svg" />
-                </div>
-                <div class="flex flex-col justify-center text-black text-base not-italic font-bold leading-6">Weekly Catch Up Chat Reminder</div>
-              </div>
-              <div class="flex flex-row gap-4">
-                <div
-                  class="flex w-6 h-6 p-1 justify-center items-center flex-shrink-0 bg-gray-100 rounded-full"
-                >
-                  <img src="./build/img/check.svg" />
-                </div>
-                <div  class="flex flex-col justify-center text-black text-base not-italic font-bold leading-6">Holiday Gift Ideas</div>
-              </div>
-              <div class="flex flex-row gap-4">
-                <div
-                  class="flex w-6 h-6 p-1 justify-center items-center flex-shrink-0 bg-gray-100 rounded-full"
-                >
-                  <img src="./build/img/check.svg" />
-                </div>
-                <div class="flex flex-col justify-center text-black text-base not-italic font-bold leading-6">Prompts to Ask Parents that You Never Thought About</div>
-              </div>
+            
+            <h3 style="font-size: 20px; font-weight: normal; font-family: 'Times New Roman', serif; line-height: 1.5; margin-top: 50px;">New York City</h3>
+            <p style="font-size: 16px; font-style: italic; font-family: 'Courier New', monospace; line-height: 1.5; margin-bottom: 20px">May TBA</p>
+            <div style="display: block; margin-bottom: 20px;">
+                <img src="build/img/nyc.jpg" alt="Event Image" style="max-width: 30%; height: auto;">
             </div>
-          </div>
-          <img
-            class="md:mt-4 order-2 lg:order-2"
-            src="./build/img/phone-reminder.png"
-          />
-        </div>
-      </section>
-      <section class="flex flex-col gap-8">
-        <div class="flex flex-col lg:flex-row gap-8 items-center">
-          <div
-            class="flex flex-col gap-8 md:gap-16 lg:mr-8 order-2 lg:order-2 ml-8"
-          >
-            <div class="flex flex-col justify-center flex-shrink-0 text-gray-500 text-4xl md:text-6xl not-italic font-bold">AI Therapy</div>
-            <div class="flex flex-col justify-center flex-shrink-0 text-gray-900 text-3xl md:text-5xl not-italic font-medium max-w-6xl">To heal from childhood trauma
-                and heavy emotional burden as first generation children</div>
-            <div class="flex flex-col gap-1">
-              <div class="flex flex-row gap-4">
-                <div
-                  class="flex w-6 h-6 p-1 justify-center items-center flex-shrink-0 bg-gray-100 rounded-full"
-                >
-                  <img src="./build/img/check.svg" />
-                </div>
-                <div class="flex flex-col justify-center text-black text-base not-italic font-bold leading-6">Help you find the answer of your emotional journey</div>
-              </div>
-              <div class="flex flex-row gap-4">
-                <div
-                  class="flex w-6 h-6 p-1 justify-center items-center flex-shrink-0 bg-gray-100 rounded-full"
-                >
-                  <img src="./build/img/check.svg" />
-                </div>
-                <div  class="flex flex-col justify-center text-black text-base not-italic font-bold leading-6">Friendly guidance but won’t tell you what to do</div>
-              </div>
-              <div class="flex flex-row gap-4">
-                <div
-                  class="flex w-6 h-6 p-1 justify-center items-center flex-shrink-0 bg-gray-100 rounded-full"
-                >
-                  <img src="./build/img/check.svg" />
-                </div>
-                <div class="flex flex-col justify-center text-black text-base not-italic font-bold leading-6">Full on privacy that no one else can have access</div>
-              </div>
-            </div>
-          </div>
-          <img
-            class="hidden lg:block md:mt-4 order-1 lg:order-1"
-            src="./build/img/phone.png"
-          />
-        </div>
-      </section>
-      <section class="flex flex-col gap-8">
-        <div class="flex flex-col lg:flex-row gap-8 mt-16 md:mt-0 md:items-center">
-          <div
-            class="flex flex-col gap-8 md:gap-16 lg:mr-8 order-1 lg:order-1 ml-8"
-          >
-            <div class="flex flex-col justify-center flex-shrink-0 text-gray-500 text-4xl md:text-6xl not-italic font-bold">AI Mediator</div>
-            <div class="flex flex-col justify-center flex-shrink-0 text-gray-900 text-3xl md:text-5xl not-italic font-medium max-w-6xl">Before the family fight 
-                even starts...</div>
-            <div class="flex flex-col gap-1">
-              <div class="flex flex-row gap-4">
-                <div
-                  class="flex w-6 h-6 p-1 justify-center items-center flex-shrink-0 bg-gray-100 rounded-full"
-                >
-                  <img src="./build/img/check.svg" />
-                </div>
-                <div class="flex flex-col justify-center text-black text-base not-italic font-bold leading-6">Discover family conflicts</div>
-              </div>
-              <div class="flex flex-row gap-4">
-                <div
-                  class="flex w-6 h-6 p-1 justify-center items-center flex-shrink-0 bg-gray-100 rounded-full"
-                >
-                  <img src="./build/img/check.svg" />
-                </div>
-                <div  class="flex flex-col justify-center text-black text-base not-italic font-bold leading-6">Help with resolving family conflicts</div>
-              </div>
-              <div class="flex flex-row gap-4">
-                <div
-                  class="flex w-6 h-6 p-1 justify-center items-center flex-shrink-0 bg-gray-100 rounded-full"
-                >
-                  <img src="./build/img/check.svg" />
-                </div>
-                <div class="flex flex-col justify-center text-black text-base not-italic font-bold leading-6">Have a peaceful family conversation</div>
-              </div>
-            </div>
-          </div>
-         <img
-            class="md:mt-4 order-2 lg:order-1"
-            src="./build/img/phone.png"
-          />
-        </div>
-      </section>
-      <section class="relative gradient-section-reversed">
-        <div class="rounded-lg bg-pink-200 bg-opacity-50 p-8 md:p-32 m-16 mt-0 md:m-32 relative overflow-hidden flex flex-row">
-            <div class="flex flex-col gap-10 max-w-xl">
-                <div class="text-3xl not-italic font-normal leading-9">A tool to help you navigate </div>
-                <div class="text-gray-500 text-3xl md:text-5xl not-italic font-bold">through Family Relationship and reconnect with loved ones </div>
-                <div class="text-gray-500 text-3xl md:text-5xl not-italic font-bold">before it is too late...</div>
-            </div>
-            <div class="absolute top-0 right-0 -translate-y-1/4 transform hidden xl:block">
-                <img
-                class="ml-16 md:ml-0 md:mt-4 order-2 lg:order-2"
-                src="./build/img/phone.png"
-                />
+            <div style="display: block;">
+                <a href="https://getwaitlist.com/waitlist/8223" class="event-signup-link">Event Sign Up</a>
             </div>
         </div>
-        <div class="absolute bottom-4 left-16 text-md not-italic font-normal leading-9">© 2023 familia.io, Inc.</div>
-    </section>
-    </main>
-  </body>
+        
+        
+
+        <div id="Founder Story" class="tab-content">
+            <h2>Blog</h2>
+            <p>to be continued</p>
+            <!-- to be filled in -->
+        </div>
+
+        <div id="contact" class="tab-content">
+            <h2 style="font-size: 24px; font-weight: normal; font-family: Arial, sans-serif; line-height: 1.5;">Email</h2>
+            <p style="font-size: 20px; font-weight: normal; font-family: 'Times New Roman', serif; line-height: 1.5; margin-bottom: 20px">
+                <a href="mailto:info@familiaapp.io" class="email-link" style="color: inherit; text-decoration: none;">info@familiaapp.io</a>
+            </p>
+            <h2 style="font-size: 24px; font-weight: normal; font-family: Arial, sans-serif; line-height: 1.5;">Office Number</h2>
+            <p style="font-size: 20px; font-weight: normal; font-family: 'Times New Roman', serif; line-height: 1.5;">
+                +1(510)-501-3934</a>
+            </p>
+        </div>
+        
+        
+
+        
+
+        <!-- Sakura Animation -->
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <div class="sakura"></div>
+        <!-- Add more sakura divs here -->
+    </div>
+
+    
+
+    <footer>
+        &copy; 2024 FAMILIA.IO
+    </footer>
+
+    <script>
+        var slideIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(carousel, 7000); // Change image every 5 seconds
+        }
+
+        function openTab(tabName) {
+            var i, tabContent;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+        }
+    </script>
+</body>
 </html>
