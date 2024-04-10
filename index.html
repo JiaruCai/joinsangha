@@ -181,24 +181,33 @@
 @media only screen and (max-width: 600px) {
     header {
         padding: 10px;
-        position: relative; /* Add position relative to make sure absolute positioning of nav works */
+        position: relative;
     }
 
     nav {
         text-align: center;
         position: absolute;
-        top: 100%; /* Position navigation below header */
+        top: 0; /* Position navigation at the top of the header */
         left: 0;
         width: 100%;
-        background-color: #fff; /* Add background color to navigation for better visibility */
-        z-index: 999; /* Ensure navigation is above other content */
+        background-color: #e4e3e5; /* Match navigation background with website background */
+        z-index: 100;
     }
 
     nav a {
-        display: inline-block; /* Set navigation items to display horizontally */
+        display: inline-block;
         padding: 10px 20px;
+        color: #000;
+        text-decoration: none;
+        transition: transform 0.3s;
+    }
+
+    h1 {
+        display: inline-block; /* Make Familia title inline-block to align with navigation */
+        margin-right: 20px; /* Add margin to create space between title and navigation */
     }
 }
+
 
 
 </style>
