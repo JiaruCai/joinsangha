@@ -16,7 +16,8 @@
         font-family: Arial, sans-serif;
         background-color: #e4e3e5;
         color: #333;
-        overflow: hidden; /* Hide overflow */
+        overflow: hidden; 
+        /* Hide overflow */
     }
 
     /* Font Face */
@@ -173,6 +174,30 @@
             opacity: 1;
         }
     }
+
+
+/* add a solution to fix mobile app problem */
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 600px) {
+    header {
+        padding: 10px; /* Adjust header padding */
+    }
+
+    nav {
+        text-align: center;
+        top: initial;
+        right: initial;
+        bottom: 0;
+        width: 100%;
+        padding: 10px 0;
+        flex-direction: column; /* Set navigation items to display vertically */
+    }
+
+    nav a {
+        display: block; /* Set navigation items to display vertically */
+        padding: 10px 0; /* Adjust padding */
+    }
+}
 
 </style>
 </head>
