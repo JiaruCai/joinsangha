@@ -1,6 +1,6 @@
-# Familia IO Landing Page
 
-This site is published with github pages and is available at https://familiaapp.io
+
+This site is published with github pages and is available at https://joinsangha.co
 
 ### Running Locally
 

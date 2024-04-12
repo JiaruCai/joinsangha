@@ -1,380 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>     
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FAMILIA</title>
-<style>
-    /* Reset CSS */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #e4e3e5;
-        color: #333;
-        overflow: hidden; 
-        /* Hide overflow */
-    }
-
-    /* Font Face */
-    @font-face {
-        font-family: 'Comfortaa Light';
-        src: url('comfortaa-light.woff2') format('woff2'), /* Adjust the path to your font file */
-            url('comfortaa-light.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    /* Header Gradient */
-    header {
-        padding: 15px;
-        text-align: left;
-        border-bottom: 3px solid #000;
-    }
-
-    header h1 {
-        font-family: 'Comfortaa Light', Arial, sans-serif;
-        font-weight: normal;
-    }
-
-    
-
-    /* Navigation */
-    nav {
-        padding: 10px 20px;
-        text-align: right;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
-
-    nav a {
-        display: inline-block; /* Change display property */
-        color: #000;
-        text-decoration: none;
-        padding: 10px 20px;
-        transition: transform 0.3s; /* Add transition */
-    }
-
-    nav a:hover {
-        transform: scale(1.2); /* Increase scale on hover */
-    }
-
-
-    .event-signup-link {
-    display: inline-block;
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 5px 20px;
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s; /* Add transform transition */
-    }
-
-    .event-signup-link:hover {
-        background-color: #c0c0c0; /* Change background color on hover */
-        transform: scale(1.2); /* Make button 10% bigger on hover */
-    }
-
-    .email-link {
-    color: inherit;
-    text-decoration: none;
-    transition: transform 0.3s; /* Add transform transition */
-    }
-
-    .email-link:hover {
-        transform: scale(1.2); /* Make link 10% bigger on hover */
-    }
-
-
-
-    
-    .container {
-    max-width: 800px;
-    height: auto; /* Allow the height to adjust based on content */
-    max-height: 800px; /* Set a maximum height for the container */
-    overflow-y: auto; /* Allow vertical scrolling when content overflows */
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #e4e3e5;
-    border-radius: 5px;
-    position: relative;
-    }
-
-
-    .image-description {
-            font-family: Arial, sans-serif; /* Change font family */
-            font-size: 20px; /* Change font size */
-            margin-top: 20px; /* Add margin space on top */
-            line-height: 1.5; /* Adjust line height for better readability */
-    }
-
-    /* Footer */
-    footer {
-        text-align: center;
-        padding: 5px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.8); /* Add background color */
-        z-index: 100; /* Ensure the footer is above other elements */
-    }
-
-    /* Image Slider */
-    .slideshow-container {
-        max-width: 100%;
-        position: relative;
-        margin: auto;
-    }
-
-    .mySlides {
-        display: none;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* Tabs */
-    .tab-content {
-        display: none;
-    }
-
-    .tab-content.active {
-        display: block;
-    }
-
-        /* Falling Sakura Animation */
-    .sakura {
-        position: absolute;
-        width: 10px;
-        height: 20px; /* Increased height to resemble flower petals */
-        background-color: #e4e3e5; /* Sakura color */
-        border-radius: 50%; /* Round shape */
-        pointer-events: none; /* Ignore pointer events */
-        animation: fall 10s linear infinite alternate; /* Updated animation */
-    }
-
-    /* Animation Keyframes */
-    @keyframes fall {
-        0% {
-            transform: translateY(-10%);
-            opacity: 0;
-        }
-        100% {
-            transform: translateY(110vh);
-            opacity: 1;
-        }
-    }
-
-
-/* add a solution to fix mobile app problem */
-/* Media Query for Mobile Devices */
-@media only screen and (max-width: 600px) {
-    header {
-        padding: 10px;
-        position: relative;
-    }
-
-    h1 {
-        display: inline-block; /* Display Familia title inline with navigation */
-        margin: 0;
-        vertical-align: middle; /* Align vertically with navigation */
-    }
-
-    nav {
-        text-align: center;
-        position: absolute;
-        top: 0; /* Position navigation at the top of the header */
-        left: 0;
-        width: 100%;
-        background-color: #e4e3e5; /* Match navigation background with website background */
-        z-index: 100;
-    }
-
-    nav a {
-        display: inline-block;
-        padding: 10px 20px;
-        color: #000;
-        text-decoration: none;
-        transition: transform 0.3s;
-    }
-}
-
-
-
-
-
-</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Sangha</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>FAMILIA</h1>
+        <h1>Welcome to Our Sangha!</h1>
         <nav>
-            <a href="#" onclick="openTab('home')">Home</a>
-            <a href="#" onclick="openTab('events')">Events</a>
-            <a href="#" onclick="openTab('Founder Story')">Founder Story</a>
-            <a href="#" onclick="openTab('contact')">Contact</a>
+            <a href="#schedule">Schedule a Meditation</a>
+            <a href="#meditate">Meditate!</a>
+            <a href="#checkin">Emotionally Check-in</a>
         </nav>
     </header>
-    
-    
-
-    <div class="container">
-        <div id="home" class="tab-content active">
-            <div class="slideshow-container">
-                <div class="mySlides fade">
-                    <img src="build/img/frontpage.jpg" alt="Image 1" style="width: 100%; height: auto;">
-                    <div>
-                        <p style="font-size: 24px; font-weight: bold; line-height: 1.5; margin-bottom: 10px;">Founder's Talk</p>
-                        <p style="font-size: 20px; font-family: Arial, sans-serif; line-height: 1.5; margin-bottom: 20px;">Far too often, I've engaged in conversations with accomplished women who share a common narrative - growing up without the presence of a feminine figure in their household. The consequences are profound, as these women often find themselves silently navigating a sea of emotions, grappling with unexpressed feelings that manifest as nightly struggles with depression.</p>
-                    </div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="build/img/author.jpg" alt="Image 2" style="width: 60%; height: auto;">
-                    <div>
-                        <p style="font-size: 24px; font-weight: bold; line-height: 1.5; margin-bottom: 10px;">Michelle, 34, Philadelphia, Crying in H-Mart</p>
-                        <p style="font-size: 20px; font-family: Arial, sans-serif; line-height: 1.5; margin-bottom: 20px;">"Let me feel this, I wanted to scream, hold me... I thought to myself, that if I ever have children, I would never tell them to save their tears."</p>
-                    </div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="build/img/Elizabeth.jpg" alt="Image 3" style="width: 80%; height: auto;">
-                    <div>
-                        <p style="font-size: 24px; font-weight: bold; line-height: 1.5; margin-bottom: 10px;">Elizabeth, 28, Instagram influencer with 15k followers</p>
-                        <p style="font-size: 20px; font-family: Arial, sans-serif; line-height: 1.5; margin-bottom: 20px;">“When my boyfriend told me he wanted to be in a relationship with me, I booked a ticket back to my hometown immediately and escaped. I thought to myself, I don't deserve this.” "I have been seeing therapists on and off. I wish something like this (familia app) exists."</p>
-                    </div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="build/img/Janet.jpg" alt="Image 4" style="width: 80%; height: auto;">
-                    <div>
-                        <p style="font-size: 24px; font-weight: bold; line-height: 1.5; margin-bottom: 10px;">Janet, 25, software engineer</p>
-                        <p style="font-size: 20px; font-family: Arial, sans-serif; line-height: 1.5; margin-bottom: 20px;">Janet's parents escaped Vietnam war through a boat and built the entire family from ground up in America as a working-class family. She grew up feeling guilty to treat herself. “What I made in the Bay Area compares to what my parents make in Michigan is huge.”</p>
-                    </div>
-                </div>
-                
-                <!-- Add more images here -->
-            </div>
-             
-        </div>
-
-        <div id="events" class="tab-content">
-            <h2 style="font-size: 24px; font-weight: normal; font-family: Arial, sans-serif; line-height: 1.5;">Check out our upcoming events today</h2>
-            <h3 style="font-size: 20px; font-weight: normal; font-family: 'Times New Roman', serif; line-height: 1.5;">San Francisco</h3>
-            <p style="font-size: 16px; font-style: italic; font-family: 'Courier New', monospace; line-height: 1.5; margin-bottom: 20px ">April TBA</p>
-            <div style="display: block; margin-bottom: 20px;">
-                <img src="build/img/coittower.jpg" alt="Event Image" style="max-width: 30%; height: auto;">
-            </div>
-            <div style="display: block;">
-                <a href="https://getwaitlist.com/waitlist/8223" class="event-signup-link">Event Sign Up</a>
-            </div>
-            
-            <h3 style="font-size: 20px; font-weight: normal; font-family: 'Times New Roman', serif; line-height: 1.5; margin-top: 50px;">New York City</h3>
-            <p style="font-size: 16px; font-style: italic; font-family: 'Courier New', monospace; line-height: 1.5; margin-bottom: 20px">May TBA</p>
-            <div style="display: block; margin-bottom: 20px;">
-                <img src="build/img/nyc.jpg" alt="Event Image" style="max-width: 30%; height: auto;">
-            </div>
-            <div style="display: block;">
-                <a href="https://getwaitlist.com/waitlist/8223" class="event-signup-link">Event Sign Up</a>
-            </div>
-        </div>
-        
-        
-
-        <div id="Founder Story" class="tab-content">
-            <h2>April 2nd 2024</h2>
-            <p style="font-family: 'Times New Roman', serif; font-size: 18px; line-height: 1.6; margin-top: 20px;">
-                The moment the airplane touched down at San Francisco International Airport, I started to wonder when all of this will come to an end. 
-                It was the fifth time I had introduced a guy to my family, only to discover later that we were entirely incompatible.
-                I found myself questioning: Does finding a lifetime partner truly equate to eternal happiness? The answer is no. 
-                I indeed very much enjoy traveling by myself, and I know how to deal with loneliness quite well. I have a good relationship with myself.
-                I regain my energy through exploring a new kind of culture, a new neighborhood and learning a new kind of language. 
-                So, what compelled me to pursue a lifetime partner so fervently? It was the weight of my parents' expectations, 
-                coupled with the fear of being left behind if my friends all embarked on the journey of marriage without me.
-                After a month of nomadic exploration in Italy, meeting many new female friends, I started to realize I was happy, 
-                My emotional needs were fulfilled.
-                This makes me think, what if every single lady also has an awesome community wherever they live to support them? 
-                Often times people mix up their need to have companionship with longing for a relationship, 
-                and end up rushing into a relationship they later find out not a great fit. Therefore, I started to host this community, with only one wish,
-                my beloved single ladies, no longer feel the need to be stuck in a toxic relationship, rather there is a community behind them they can hang out with, they can trust,
-                high quality of female community, where they can gain more symmetric information for their potential love interest. 
-                Here to help single females stop wasting their time wondering what is going on on the other side of the road and struggling with relationship. Women support wonmen, and we all become stronger.
-            </p>
-            <!-- to be filled in -->
-        </div>
-
-        <div id="contact" class="tab-content">
-            <h2 style="font-size: 24px; font-weight: normal; font-family: Arial, sans-serif; line-height: 1.5;">Email</h2>
-            <p style="font-size: 20px; font-weight: normal; font-family: 'Times New Roman', serif; line-height: 1.5; margin-bottom: 20px">
-                <a href="mailto:info@familiaapp.io" class="email-link" style="color: inherit; text-decoration: none;">info@familiaapp.io</a>
-            </p>
-            <!-- <h2 style="font-size: 24px; font-weight: normal; font-family: Arial, sans-serif; line-height: 1.5;">Office Number</h2>
-            <p style="font-size: 20px; font-weight: normal; font-family: 'Times New Roman', serif; line-height: 1.5;">
-                +1(510)-501-3934</a>
-            </p> -->
-        </div>
-        
-        
-
-        
-
-        <!-- Sakura Animation -->
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <div class="sakura"></div>
-        <!-- Add more sakura divs here -->
-    </div>
-
-    
-
+    <section id="schedule">
+        <h2>Book a Meditation Slot</h2>
+        <p>Book a 15, 30, or 45 minute time slot that works for you!</p>
+        <!-- Simplified Form for demonstration -->
+        <form>
+            <input type="text" placeholder="Enter Duration (15, 30, 45 minutes)" required>
+            <button type="submit">Schedule</button>
+        </form>
+    </section>
+    <section id="meditate">
+        <h2>Join the Meditation Call</h2>
+        <p>Join the call, introduce yourselves, and then meditate!</p>
+        <button onclick="alert('Joining the call...')">Join Call</button>
+    </section>
+    <section id="checkin">
+        <h2>Emotionally Check-in</h2>
+        <form>
+            <textarea placeholder="Share your feelings here..." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
     <footer>
-        &copy; 2024 FAMILIA.IO
+        <p>© 2024 Sangha Inc. All rights reserved.</p>
     </footer>
-
-    <script>
-        var slideIndex = 0;
-        carousel();
-
-        function carousel() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}
-            slides[slideIndex-1].style.display = "block";
-            setTimeout(carousel, 7000); // Change image every 5 seconds
-        }
-
-        function openTab(tabName) {
-            var i, tabContent;
-            tabContent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabContent.length; i++) {
-                tabContent[i].classList.remove("active");
-            }
-            document.getElementById(tabName).classList.add("active");
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
