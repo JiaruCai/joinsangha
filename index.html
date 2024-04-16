@@ -182,6 +182,59 @@
             background-color: ivory;
             color: #C9AD39;
         }
+
+        /* Media queries for mobile devices */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 24px; /* Smaller font size for mobile */
+            }
+
+            header {
+                padding: 5px 10px; /* Smaller padding */
+            }
+
+            nav .button {
+                font-size: 14px; /* Smaller font size for buttons */
+                padding: 5px 8px; /* Smaller padding */
+            }
+
+            main, .page-two, .page-three {
+                padding: 10px; /* Reduced padding */
+            }
+
+            .content, .page-content {
+                max-width: 100%; /* Full width */
+                padding: 0 10px; /* Add padding on the sides for better reading */
+            }
+
+            .image-info {
+                width: 100%; /* Full width for image containers on smaller screens */
+                padding: 5px; /* Smaller padding */
+            }
+
+            .image-info img {
+                margin-bottom: 5px; /* Reduced space below images */
+            }
+
+            .image-title, .image-info p {
+                font-size: 16px; /* Adjust font size for better readability on mobile */
+            }
+
+            footer {
+                padding: 5px 10px; /* Reduced padding in footer */
+                flex-direction: column; /* Stack footer content vertically */
+            }
+
+            .footer-left, .footer-right {
+                text-align: center; /* Center alignment for footer content */
+                padding: 5px 0; /* Adjust padding */
+            }
+
+            .footer-link {
+                padding: 4px 8px; /* Smaller padding for links */
+            }
+        }
+
     </style>
 </head>
 <body>
