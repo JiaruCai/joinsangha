@@ -24,7 +24,7 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 40px;
             font-weight: bold;
         }
 
@@ -243,14 +243,21 @@
         </div>
     </footer>
     <script>
+        let timer2; // Timer for automatic transition from Page 2 to Page 3
+        let timer3; // Timer for automatic transition from Page 3 to Page 1
+    
         window.addEventListener('scroll', function() {
-            var pageOne = document.querySelector('main'); // Assuming main is page 1
+            var pageOne = document.querySelector('main');
             var pageTwo = document.querySelector('.page-two');
             var pageThree = document.querySelector('.page-three');
             var pageHeight = window.innerHeight;
             var scrollPosition = window.scrollY;
     
-            // Handle transitions between pages based on scroll position
+            // Cancel any existing timers if user scrolls
+            clearTimeout(timer2);
+            clearTimeout(timer3);
+    
+            // Handle transitions based on scroll position
             if (scrollPosition >= 0 && scrollPosition < pageHeight) {
                 // Viewing Page 1
                 pageTwo.style.visibility = 'hidden';
@@ -263,17 +270,22 @@
                 pageTwo.style.transform = 'translate3d(0, 0, 0)';
                 pageThree.style.visibility = 'hidden';
                 pageThree.style.transform = 'translate3d(0, 200vh, 0)';
+                // Set a timer to automatically move to Page 3 after 5 seconds
+                timer2 = setTimeout(function() {
+                    window.scrollTo(0, 2 * pageHeight);
+                }, 5000); // 5 seconds
             } else if (scrollPosition >= 2 * pageHeight && scrollPosition < 3 * pageHeight) {
                 // Viewing Page 3
-                pageTwo.style.visibility = 'hidden';
-                pageTwo.style.transform = 'translate3d(0, 0, 0)';
                 pageThree.style.visibility = 'visible';
-                pageThree.style.transform = 'translate3d(0, 200vh, 0)';
-            } else if (scrollPosition >= 3 * pageHeight) {
-                // Looping back to Page 1
-                window.scrollTo(0, 0);
+                pageThree.style.transform = 'translate3d(0, 0, 0)';
+                // Set a timer to automatically move to Page 1 after 15 seconds
+                timer3 = setTimeout(function() {
+                    window.scrollTo(0, 0);
+                }, 15000); // 15 seconds
             }
         });
     </script>
+    
+    
 </body>
 </html>
