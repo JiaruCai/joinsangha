@@ -3,42 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Sangha!</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Welcome to Sangha</title>
+    <style>
+        /* Embedded CSS */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: beige; /* Main background color */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        header {
+            background-color: #d48d69; /* Header background color */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav .button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 0; /* Initially no border radius */
+        }
+
+        nav .button:hover {
+            background-color: ivory; /* Color changes to ivory on hover */
+            color: #C9AD39; /* Text color changes to match header background */
+            border-radius: 50px; /* Rounded borders on hover */
+        }
+
+        main, .page-two {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            min-height: 100vh; /* Full viewport height */
+            position: relative;
+            transition: transform 0.5s ease-out; /* Faster transition for smoother effect */
+        }
+
+        .content, .page-content {
+            text-align: left;
+            max-width: 600px; /* Adjust as needed */
+        }
+
+        h1, .big-text {
+            font-size: 36px; /* Larger font size for the title */
+        }
+
+        p, .small-text {
+            font-size: 16px; /* Smaller font for description */
+            margin: 5px 0;
+        }
+
+        .bold {
+            font-weight: bold; /* Bold specific part of text */
+        }
+
+        .button {
+            background-color: #d48d69; /* Button color similar to the header */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            border-radius: 30px; /* More rounded shape */
+        }
+
+        .button:hover {
+            transform: scale(1.1); /* Button becomes bigger on hover */
+        }
+
+        .small {
+            font-size: 12px;
+            font-weight: 300; /* Thinner font weight */
+            opacity: 0.6;
+            margin-top: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px; /* Maintain this padding */
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            text-align: left;
+            padding-left: 20px; /* Ensure there’s padding inside the footer on the left */
+        }
+
+        .footer-right {
+            text-align: right;
+            padding-right: 20px; /* Ensure there’s padding inside the footer on the right */
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            background-color: transparent;
+            padding: 8px 16px;
+            margin: 0 5px; /* Add margin to ensure links don’t touch each other or the edge */
+            border-radius: 30px; /* Rounded corners like your buttons */
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            background-color: ivory;
+            color: #C9AD39; /* Similar hover effect to the nav buttons */
+        }
+        
+        .image {
+            margin: 0 20px;
+        }
+
+        /* 3D swipe-up effect */
+        .page-two {
+            position: absolute;
+            top: 100vh;
+            width: 100%;
+            transform: translate3d(0, 100vh, 0); /* Start below the viewport */
+            transition: transform 0.5s ease-in-out; /* Smooth transition for page effect */
+            visibility: hidden; /* Hidden by default */
+        }
+
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Our Sangha!</h1>
+        <div class="logo">Sangha</div>
         <nav>
-            <a href="#schedule">Schedule a Meditation</a>
-            <a href="#meditate">Meditate!</a>
-            <a href="#checkin">Emotionally Check-in</a>
+            <button class="button">Sign In</button>
+            <button class="button">Join</button>
         </nav>
     </header>
-    <section id="schedule">
-        <h2>Book a Meditation Slot</h2>
-        <p>Book a 15, 30, or 45 minute time slot that works for you!</p>
-        <!-- Simplified Form for demonstration -->
-        <form>
-            <input type="text" placeholder="Enter Duration (15, 30, 45 minutes)" required>
-            <button type="submit">Schedule</button>
-        </form>
-    </section>
-    <section id="meditate">
-        <h2>Join the Meditation Call</h2>
-        <p>Join the call, introduce yourselves, and then meditate!</p>
-        <button onclick="alert('Joining the call...')">Join Call</button>
-    </section>
-    <section id="checkin">
-        <h2>Emotionally Check-in</h2>
-        <form>
-            <textarea placeholder="Share your feelings here..." required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
+    <main>
+        <div class="content">
+            <h1>Welcome to Our Sangha!</h1>
+            <p>Meditate with yogis from around the world, on your <span class="bold">schedule.</span></p>
+            <button class="button">Try for Free</button>
+            <p class="small">No Credit Card Required</p>
+        </div>
+        <div class="image">
+            <img src="image1.jpg" alt="Meditation Image" style="width: 300px; height: auto;">
+        </div>
+    </main>
+    <div class="page-two">
+        <div class="page-content">
+            <div class="big-text">It's hard to meditate regularly when we do it alone.</div>
+            <div class="small-text">It's easier when we do it together.</div>
+        </div>
+        <div class="image">
+            <img src="image2.jpg" alt="Meditation Image" style="width: 300px; height: auto;">
+        </div>
+    </div>
+
+    <!-- chanege footer to align with original design goal -->
     <footer>
-        <p>© 2024 Sangha Inc. All rights reserved.</p>
+        <div class="footer-left">
+            © 2024 Sangha Inc.
+        </div>
+        <div class="footer-right">
+            <a href="#" class="footer-link">About</a>
+            <a href="#" class="footer-link">Contact</a>
+        </div>
     </footer>
-    <script src="script.js"></script>
+    
+    <script>
+        window.addEventListener('scroll', function() {
+            var pageTwo = document.querySelector('.page-two');
+            var pageHeight = window.innerHeight;
+            if (window.scrollY > pageHeight - 100) { // Reduced threshold for quicker response
+                pageTwo.style.visibility = 'visible';
+                pageTwo.style.transform = 'translate3d(0, 0, 0)'; // Swipe up to show the second page
+            } else {
+                pageTwo.style.visibility = 'hidden';
+                pageTwo.style.transform = 'translate3d(0, 100vh, 0)'; // Reset when not in view
+            }
+        });
+    </script>
 </body>
 </html>
